@@ -1,98 +1,72 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
-
-import { HelloWave } from '@/components/hello-wave';
-import ParallaxScrollView from '@/components/parallax-scroll-view';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { Link } from 'expo-router';
+import { DocumentCard } from "@/app/components/ui/DocumentCard";
+import { clientDocuments, witnessDocuments } from "@/app/data/dummy";
+import { LinearGradient } from "expo-linear-gradient";
+import React from "react";
+import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 
 export default function HomeScreen() {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
+    <ScrollView
+      className="flex-1 bg-gray-100"
+      showsVerticalScrollIndicator={false}
+    >
+      {/* Header */}
+      <View className="bg-white pt-14 px-5 pb-4">
         <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
+          source={require("@/assets/images/logo.png")}
+          style={styles.logo}
+          resizeMode="contain"
         />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12',
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <Link href="/modal">
-          <Link.Trigger>
-            <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-          </Link.Trigger>
-          <Link.Preview />
-          <Link.Menu>
-            <Link.MenuAction title="Action" icon="cube" onPress={() => alert('Action pressed')} />
-            <Link.MenuAction
-              title="Share"
-              icon="square.and.arrow.up"
-              onPress={() => alert('Share pressed')}
-            />
-            <Link.Menu title="More" icon="ellipsis">
-              <Link.MenuAction
-                title="Delete"
-                icon="trash"
-                destructive
-                onPress={() => alert('Delete pressed')}
-              />
-            </Link.Menu>
-          </Link.Menu>
-        </Link>
+      </View>
 
-        <ThemedText>
-          {`Tap the Explore tab to learn more about what's included in this starter app.`}
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          {`When you're ready, run `}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+      {/* Status Banner */}
+      <LinearGradient
+        colors={["#000189", "#4F39F6"]}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 0 }}
+        className="mx-4 mt-4 rounded-2xl p-5"
+      >
+        <Text className="text-white text-lg font-bold mb-1.5">Status</Text>
+        <Text className="text-white/80 text-sm leading-5 mb-3">
+          You have{" "}
+          <Text className="text-white font-bold">
+            {witnessDocuments.length + clientDocuments.length} documents
+          </Text>{" "}
+          awaiting your signature for notary verification.
+        </Text>
+        <View className="flex-row items-center gap-2">
+          <View className="flex-1 h-2 bg-white/30 rounded-full overflow-hidden">
+            <View className="h-full w-3/4 bg-green-500 rounded-full" />
+          </View>
+          <Text className="text-white text-xs font-semibold">75% Total</Text>
+        </View>
+      </LinearGradient>
+
+      {/* Witness Documents */}
+      <View className="px-4 mt-5">
+        <Text className="text-gray-800 text-lg font-bold mb-3">
+          Witness Documents
+        </Text>
+        {witnessDocuments.map((doc) => (
+          <DocumentCard key={doc.id} document={doc} />
+        ))}
+      </View>
+
+      {/* Client Documents */}
+      <View className="px-4 mt-2">
+        <Text className="text-gray-800 text-lg font-bold mb-3">
+          Client Documents
+        </Text>
+        {clientDocuments.map((doc) => (
+          <DocumentCard key={doc.id} document={doc} isClientDoc />
+        ))}
+      </View>
+
+      <View className="h-24" />
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
-  },
+  logo: { height: 36, width: 120 },
 });
