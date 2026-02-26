@@ -27,11 +27,11 @@ export default function EditProfileScreen() {
       </View>
 
       <View className="flex-1 px-5 pt-8">
-        {/* Avatar */}
+        {/* profile */}
         <View className="self-center mb-8">
           <View className="w-24 h-24 rounded-full border-2 border-indigo-600 overflow-hidden">
             <Image
-              source={require("@/assets/images/avatar.png")}
+              source={require("@/assets/images/person.png")}
               className="w-full h-full"
             />
           </View>

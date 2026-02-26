@@ -28,7 +28,7 @@ export default function HistoryScreen() {
           <View className="bg-white rounded-2xl p-4 mb-3 flex-row items-center shadow-sm">
             <View className="w-11 h-11 bg-yellow-100 rounded-xl items-center justify-center mr-3">
               <Image
-                source={require("@/assets/images/doc-icon.png")}
+                source={require("@/assets/images/logo.png")}
                 className="w-6 h-6"
                 style={{ tintColor: "#F59E0B" }}
               />

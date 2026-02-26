@@ -1,6 +1,3 @@
-import History from "@/assets/images/history.png";
-import Home from "@/assets/images/home.png";
-import Person from "@/assets/images/person.png";
 import { Tabs } from "expo-router";
 import React from "react";
 import { Image, Text, View } from "react-native";
@@ -37,7 +34,11 @@ export default function TabsLayout() {
         options={{
           title: "",
           tabBarIcon: ({ focused }) => (
-            <TabIcon focused={focused} icon={Home} title="Home" />
+            <TabIcon
+              focused={focused}
+              icon={require("@/assets/images/home.png")}
+              title="Home"
+            />
           ),
         }}
       />
@@ -46,7 +47,11 @@ export default function TabsLayout() {
         options={{
           title: "",
           tabBarIcon: ({ focused }) => (
-            <TabIcon focused={focused} icon={History} title="History" />
+            <TabIcon
+              focused={focused}
+              icon={require("@/assets/images/history.png")}
+              title="History"
+            />
           ),
         }}
       />
@@ -55,7 +60,11 @@ export default function TabsLayout() {
         options={{
           title: "",
           tabBarIcon: ({ focused }) => (
-            <TabIcon focused={focused} icon={Person} title="Profile" />
+            <TabIcon
+              focused={focused}
+              icon={require("@/assets/images/person.png")}
+              title="Profile"
+            />
           ),
         }}
       />

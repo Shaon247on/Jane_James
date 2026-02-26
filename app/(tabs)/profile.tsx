@@ -3,12 +3,12 @@ import { LinearGradient } from "expo-linear-gradient";
 import { router } from "expo-router";
 import React from "react";
 import {
-    Image,
-    ScrollView,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
 
 export default function ProfileScreen() {
@@ -37,7 +37,7 @@ export default function ProfileScreen() {
         Profile
       </Text>
 
-      {/* Avatar */}
+      {/* profile */}
       <View className="items-center py-2">
         <View className="w-20 h-20 rounded-full bg-gray-300 items-center justify-center mb-3">
           <Text className="text-3xl font-bold text-gray-500">
@@ -82,7 +82,7 @@ export default function ProfileScreen() {
         colors={["#000189", "#4F39F6"]}
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 0 }}
-        className="mx-4 rounded-2xl p-5"
+        className="mx-4 rounded-[12] p-5"
       >
         <Text className="text-white text-lg font-bold mb-1.5">Status</Text>
         <Text className="text-white/80 text-sm leading-5 mb-3">

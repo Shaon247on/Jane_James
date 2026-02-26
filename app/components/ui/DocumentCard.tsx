@@ -10,13 +10,9 @@ interface Props {
   isClientDoc?: boolean;
 }
 
-export const DocumentCard: React.FC<Props> = ({
-  document,
-  isClientDoc = false,
-}) => {
+const DocumentCard: React.FC<Props> = ({ document, isClientDoc = false }) => {
   return (
     <View className="bg-white rounded-2xl p-4 mb-3 shadow-sm">
-      {/* Top Row */}
       <View className="flex-row justify-between items-start mb-1">
         <Text className="text-base font-bold text-gray-800 flex-1 mr-3">
           {document.title}
@@ -57,6 +53,10 @@ export const DocumentCard: React.FC<Props> = ({
     </View>
   );
 };
+
+DocumentCard.displayName = "DocumentCard";
+
+export { DocumentCard };
 
 const styles = StyleSheet.create({
   gradient: {

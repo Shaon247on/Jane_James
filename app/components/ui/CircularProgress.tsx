@@ -8,7 +8,7 @@ interface Props {
   strokeWidth?: number;
 }
 
-export const CircularProgress: React.FC<Props> = ({
+const CircularProgress: React.FC<Props> = ({
   progress,
   size = 56,
   strokeWidth = 4,
@@ -59,3 +59,8 @@ export const CircularProgress: React.FC<Props> = ({
     </View>
   );
 };
+
+CircularProgress.displayName = "CircularProgress";
+
+export { CircularProgress };
+

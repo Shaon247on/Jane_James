@@ -61,7 +61,7 @@ export default function SettingsScreen() {
       <View className="bg-white mx-4 mt-4 rounded-2xl p-4 flex-row items-center gap-3 shadow-sm">
         <View className="w-14 h-14 rounded-full border-2 border-indigo-600 overflow-hidden">
           <Image
-            source={require("@/assets/images/avatar.png")}
+            source={require("@/assets/images/person.png")}
             className="w-full h-full"
           />
         </View>

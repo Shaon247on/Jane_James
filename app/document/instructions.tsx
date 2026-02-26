@@ -18,45 +18,47 @@ export default function InstructionsScreen() {
             style={{ tintColor: "#374151" }}
           />
         </TouchableOpacity>
-        <Text className="text-lg font-bold text-gray-800">
+        <Text className="text-2xl font-bold text-gray-800">
           Signing Instructions
         </Text>
         <View className="w-10" />
       </View>
 
       <View className="flex-1 px-6 pt-6">
-        <Text className="text-2xl font-bold text-indigo-600 text-center leading-8 mb-7">
+        <Text className="text-3xl font-bold text-[#65758C] text-center leading-8 mb-7">
           How to sign your{"\n"}document
         </Text>
 
         {/* Step 1 */}
-        <View className="bg-white rounded-2xl py-5 px-5 flex-row items-center gap-4 mb-3 shadow-sm border-2 border-indigo-200">
-          <Image
-            source={require("@/assets/images/pen.png")}
-            className="w-5 h-5"
-            style={{ tintColor: "#374151" }}
-          />
-          <Text className="text-base font-semibold text-gray-800">
-            Sign all highlighted fields
-          </Text>
-        </View>
+        <View className="w-fit h-fit bg-[#0630FF]/10 p-5 rounded-[12] drop-shadow-[0_2px_1px_rgba(93,97,101,0.25)] sk">
+          <View className="bg-white rounded-2xl py-5 px-5 flex-row items-center gap-4 mb-3 shadow-sm border-2 border-l-8 border-l-[#000189] border-indigo-200">
+            <Image
+              source={require("@/assets/images/pen.png")}
+              className="size-6"
+              style={{ tintColor: "#374151" }}
+            />
+            <Text className="text-xl font-semibold text-gray-800">
+              Sign all highlighted fields
+            </Text>
+          </View>
 
-        {/* Step 2 */}
-        <View className="bg-white rounded-2xl py-5 px-5 flex-row items-center gap-4 mb-8 shadow-sm border-2 border-indigo-200">
-          <Image
-            source={require("@/assets/images/scan.png")}
-            className="w-5 h-5"
-            style={{ tintColor: "#374151" }}
-          />
-          <Text className="text-base font-semibold text-gray-800">
-            Scan & Upload
-          </Text>
+          {/* Step 2 */}
+          <View className="bg-white rounded-2xl py-5 px-5 flex-row items-center gap-4 shadow-sm border-2 border-indigo-200 border-l-8 border-l-[#000189]">
+            <Image
+              source={require("@/assets/images/scan.png")}
+              className="size-6"
+              style={{ tintColor: "#374151" }}
+            />
+            <Text className="text-xl font-semibold text-gray-800">
+              Scan & Upload
+            </Text>
+          </View>
         </View>
 
         {/* Illustration */}
         <View className="flex-1 items-center justify-center">
           <Image
-            source={require("@/assets/images/signing-illustration.png")}
+            source={require("@/assets/images/upload.png")}
             style={styles.illustration}
             resizeMode="contain"
           />

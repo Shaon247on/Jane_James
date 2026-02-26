@@ -1,4 +1,5 @@
 import { GradientButton } from "@/app/components/ui/GradientButton";
+import { LinearGradient } from "expo-linear-gradient";
 import { router } from "expo-router";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
@@ -15,7 +16,12 @@ export default function ResultScreen() {
           <Text className="text-sm font-bold text-gray-700">100%</Text>
         </View>
         <View className="h-2 bg-gray-200 rounded-full overflow-hidden">
-          <View className="h-full w-full bg-green-500 rounded-full" />
+          <LinearGradient
+            colors={["#00C655", "#0CAA82", "#1E82C0", "#4F39F6"]}
+            start={{ x: 1, y: 0 }} // 270deg → horizontal right-to-left
+            end={{ x: 0, y: 0 }}
+            className="p-4 h-full w-full bg-green-500 rounded-full"
+          ></LinearGradient>
         </View>
       </View>
 
@@ -39,7 +45,10 @@ export default function ResultScreen() {
         <View className="w-full bg-green-50 border border-green-200 rounded-2xl p-5">
           <View className="flex-row justify-between items-center mb-3">
             <Text className="text-sm text-gray-600">Status</Text>
-            <View className="bg-green-500 rounded-lg px-3 py-1">
+            <View
+              className="bg-green-500 rounded-lg px-3 py-1"
+              style={styles.container}
+            >
               <Text className="text-white text-xs font-bold">Completed</Text>
             </View>
           </View>
@@ -56,9 +65,16 @@ export default function ResultScreen() {
         </View>
       </View>
 
+      <View className="px-5 pb-4 gap-3">
+        <GradientButton
+          title="Back to File"
+          onPress={() => router.replace("/(tabs)")}
+        />
+      </View>
       <View className="px-5 pb-10 gap-3">
         <GradientButton
           title="Home"
+          outline={true}
           onPress={() => router.replace("/(tabs)")}
         />
       </View>
@@ -68,4 +84,12 @@ export default function ResultScreen() {
 
 const styles = StyleSheet.create({
   confetti: { fontSize: 48, textAlign: "center" },
+  container: {
+    // Simulate top/left/right inset shadow using a gradient overlay
+    shadowColor: "#00C6FF", // blue shadow
+    shadowOffset: { width: 0, height: -2 }, // negative height for top shadow
+    shadowOpacity: 0.25, // adjust intensity
+    shadowRadius: 4,
+    elevation: 0, // for Android (optional)
+  },
 });
